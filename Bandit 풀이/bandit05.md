@@ -1,4 +1,4 @@
-## [bandit5](https://overthewire.org/wargames/bandit/bandit5.html)
+## [Bandit #05](https://overthewire.org/wargames/bandit/bandit5.html)
 
 https://overthewire.org/wargames/bandit/bandit5.html
 > The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.
