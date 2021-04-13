@@ -6,7 +6,7 @@ https://overthewire.org/wargames/bandit/bandit3.html
 
 ``` ssh bandit2@bandit.labs.overthewire.org -p 2220 ```으로 로그인  
 
-암호는 [전에](./Bandit%20풀이/bandit02.md) 찾은 ```CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9```
+암호는 [전에](./Bandit%20풀이/bandit03.md) 찾은 ```CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9```
 
 ```
 bandit2@bandit:~$ ls
