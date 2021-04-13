@@ -4,7 +4,7 @@ https://overthewire.org/wargames/bandit/bandit2.html
 > The password for the next level is stored in a file called - located in the home directory
 
 
-``` ssh bandit0@bandit.labs.overthewire.org -p 2220 ```으로 로그인  
+``` ssh bandit1@bandit.labs.overthewire.org -p 2220 ```으로 로그인  
 
 암호는 [전](./Bandit%20풀이/bandit1.md)에 찾은 ```boJ9jbbUNNfktd78OOpsqOltutMc3MY1```
 
