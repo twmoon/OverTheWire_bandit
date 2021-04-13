@@ -11,9 +11,9 @@ Host: bandit.labs.overthewire.org
 Port: 2220
 
 ------------------
-## [실습 환경](https://cysecguide.blogspot.com/2018/12/cygwinlinux-feeling-on-windows.html?m=1)
+## 실습 환경
 Windows 10 Pro 2009  
-Cygwin64 to access SSH
+[Cygwin64](https://cysecguide.blogspot.com/2018/12/cygwinlinux-feeling-on-windows.html?m=1) to access SSH
 
 -----------------------
 ## 풀이 목록
