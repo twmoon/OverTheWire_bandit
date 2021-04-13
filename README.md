@@ -8,4 +8,4 @@ Host: bandit.labs.overthewire.org
 Port: 2220
 
 ------------------
-[Bandit #0](./bandit0.md)
+[Bandit #0](./Bandit 풀이/bandit0.md)
