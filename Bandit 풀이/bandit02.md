@@ -1,4 +1,4 @@
-## [bandit2](https://overthewire.org/wargames/bandit/bandit2.html)
+## [Bandit #02](https://overthewire.org/wargames/bandit/bandit2.html)
 
 https://overthewire.org/wargames/bandit/bandit2.html
 > The password for the next level is stored in a file called - located in the home directory
