@@ -11,12 +11,12 @@ Host: bandit.labs.overthewire.org
 Port: 2220
 
 ------------------
-**실습 환경**
-Windows 10 Pro 2009 
+## 실습 환경
+Windows 10 Pro 2009  
 Cygwin64 to access SSH
------------------------
 
-### 풀이 목록
+-----------------------
+## 풀이 목록
 
 [Bandit #0](./Bandit%20풀이/bandit0.md)
 
