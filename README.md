@@ -4,7 +4,8 @@
 
 Over The Wire bandit 풀이입니다.
 
-재밌어보여서 시작해보는 프로젝트(?)
+재밌어보여서 시작해보는 프로젝트(?)  
+참고로 2학년 1학기 중간고사 1주일 남음
 
 **SSH Information**     
 Host: bandit.labs.overthewire.org   
