@@ -1,4 +1,4 @@
-## [bandit #03](https://overthewire.org/wargames/bandit/bandit3.html)
+## [Bandit #03](https://overthewire.org/wargames/bandit/bandit3.html)
 
 https://overthewire.org/wargames/bandit/bandit3.html
 > The password for the next level is stored in a file called spaces in this filename located in the home directory
