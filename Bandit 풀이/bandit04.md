@@ -23,5 +23,5 @@ pIwrPrtPN36QITSp3EQaw936yaFoFgAB
 따라서 숨겨진 파일까지 찾을 수 있는 ```ls -a```를 이용하여 숨겨진 파일 **.hidden**을 찾음 
 ```cat .hidden```으로 암호를 가져오면 끝!!
 
-++추가 ```ls -ai```: 숨겨진 파일 포함 모든 파일의 권한까지 보여준다.  
+++```ls -ai```: 숨겨진 파일 포함 모든 파일의 권한까지 보여준다.  
 ++자세한 ls 옵션은 [https://choseongho93.tistory.com/113](https://choseongho93.tistory.com/113)
