@@ -5,4 +5,4 @@ https://overthewire.org/wargames/bandit/bandit14.html
 
 ``` ssh bandit12@bandit.labs.overthewire.org -p 2220 ```으로 로그인  
 
-암호는 [전에~~(눈물겨움 주의)~~](./bandit13.md) 찾은 ```HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs```
+암호는 [전에 ~~(눈물겨움 주의)~~ ](./bandit13.md) 찾은 ```HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs```
