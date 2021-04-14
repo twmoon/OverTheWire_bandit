@@ -114,7 +114,7 @@ Linux bandit.otw.local 5.4.8 x86_64 GNU/Linux
 생략(로그인 할때 나오는 상투적인 페이지)
 ```
 
-이려면 성공적으로 bandit14에 로그인할 수 있다.
+이러면 성공적으로 bandit14에 로그인할 수 있다.
 이제 남은건 암호 파일에 접근해서 값을 알아내는 것이다.
 ```
 bandit14@bandit:~$ cd /etc/bandit_pass/
