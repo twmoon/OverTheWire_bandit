@@ -12,13 +12,9 @@ The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 ```
 
 ```where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions```이 뭔소리인지 몰라서 찾아보니까  
-
 Rot13이라는 암호화 기법이 있었다. 지식이 늘었다 ㅎㅎ  
-
 ```tr```을 사용하여 13글자씩 밀어주면 원래 문자열이 나온다.  
-
 ```The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu```, 즉 암호는 ```5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu```이 나온다.  
-
 Rot13 암호화의 복호화 방법을 몰랐으면 못 풀었다... 이번 기회로 알아서 반가웠다.
 
 
