@@ -88,5 +88,5 @@ closed
 ```
 암호는 ```cluFn7wTiGryunymYOu4RcffSxQluehd```로 해결된것을 볼 수 있다.
 
-#### ++)다 풀고 helpful note 내용이 궁금해서 구글링 좀 해보니까 [다른 사람](https://websecurity.tistory.com/101)은 오류가 나는것을 볼 수 있었다  
+#### ++다 풀고 helpful note 내용이 궁금해서 구글링 좀 해보니까 [다른 사람](https://websecurity.tistory.com/101)은 오류가 나는것을 볼 수 있었다  
 ```-ign_eof```는 대충 파일의 끝에 도달해도(EOF) 무시(ignore)하라는 커맨드라고들 한다. 
