@@ -8,18 +8,126 @@ https://overthewire.org/wargames/bandit/bandit17.html
 암호는 [전에](./bandit16.md) 찾은 ```cluFn7wTiGryunymYOu4RcffSxQluehd```
 
 이 문제는 약 천개의 포트 중 열려있는 포트를 찾는 문제이다.
-넷캣 명령어를 이용하여 포트를 스캔하면 해결될 거 같다. 
+```nmap```명령어를 이용하여 포트를 스캔하면 해결될 거 같다. 
 ```
-bandit16@bandit:~$ nc -zv localhost 31000-32000
-localhost [127.0.0.1] 31960 (?) open
-localhost [127.0.0.1] 31790 (?) open
-localhost [127.0.0.1] 31691 (?) open
-localhost [127.0.0.1] 31518 (?) open
-localhost [127.0.0.1] 31046 (?) open
+bandit16@bandit:~$ nmap -p localhost 31000-32000
+
+Starting Nmap 7.40 ( https://nmap.org ) at 2021-04-17 15:14 CEST
+Found no matches for the service mask 'localhost' and your specified protocols
+QUITTING!
+bandit16@bandit:~$ nmap localhost -p 31000-32000
+
+Starting Nmap 7.40 ( https://nmap.org ) at 2021-04-17 15:14 CEST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00034s latency).
+Not shown: 996 closed ports
+PORT      STATE SERVICE
+31046/tcp open  unknown
+31518/tcp open  unknown
+31691/tcp open  unknown
+31790/tcp open  unknown
+31960/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 0.08 seconds
 ```
 
 보면 총 5개의 포트가 열려있는 것을 볼 수 있다.  
-이제 남은건 5개의 포트에 암호를 해보는 것만 남았다. 
+이제 남은건 5개의 포트에 암호를 해봐도 되지만 문제에서 ssl을 사용하는 포트를 찾으라 했으니  
+```nc```를 이용하여 간단한 문자를 보내보면
+```
+bandit16@bandit:~$ echo ?? | nc localhost 31046
+??
+^C
+bandit16@bandit:~$ echo ?? | nc localhost 31518
+^C
+bandit16@bandit:~$ echo ?? | nc localhost 31691
+??
+^C
+bandit16@bandit:~$ echo ?? | nc localhost 31790
+^C
+bandit16@bandit:~$ echo ?? | nc localhost 31960
+??
+^C
+```
+
+포트 31046,31691,31960는 단순히 데이터를 돌려주는 포트 같고 나머지 포트 31518, 31790가 ssl을 사용하는 포트로 추정된다.  
+ssl을 사용하는 포트 2곳에 현재 레벨의 암호 ```cluFn7wTiGryunymYOu4RcffSxQluehd```를 입력해주면
+```
+bandit16@bandit:~$ openssl s_client -connect localhost:31518
+CONNECTED(00000003)
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+---
+Certificate chain
+ 0 s:/CN=localhost
+   i:/CN=localhost
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIICBjCCAW+gAwIBAgIETAnsOzANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDDAls
+b2NhbGhvc3QwHhcNMjEwNDEzMDgzOTAyWhcNMjIwNDEzMDgzOTAyWjAUMRIwEAYD
+VQQDDAlsb2NhbGhvc3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAPdDeqD+
+TfS3WqaEQFYaamXCjcRO9RB6R4tqKkkkS/E06dKfP6v8+OfuYHMc8gS5IVst5I+c
+indf3oSiE1MmskmuzHlje+QKSjZEL4K+oFBD8vUr91q22NRgkdwmcGLANYpU2I2o
++CGB15a1al5UmU6apThvqFnzKOVBq634XaOFAgMBAAGjZTBjMBQGA1UdEQQNMAuC
+CWxvY2FsaG9zdDBLBglghkgBhvhCAQ0EPhY8QXV0b21hdGljYWxseSBnZW5lcmF0
+ZWQgYnkgTmNhdC4gU2VlIGh0dHBzOi8vbm1hcC5vcmcvbmNhdC8uMA0GCSqGSIb3
+DQEBBQUAA4GBAAzuRK+BEijL+kgZ/Yo78izaPpgZr9q+NqDIHMxjtF4lDsQZVJuv
+00HZ+StojQeAmJn5BRmcN3WBs9lwwcZuqr2eMk/KFJ4ZKKMaQjBGtLe/9qoMlCA2
+7iv7/q1UVLCYsOfgOzIMY+UQtb4HrLenvI8F6ndraMI5AzjLJet8LfAI
+-----END CERTIFICATE-----
+subject=/CN=localhost
+issuer=/CN=localhost
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 1019 bytes and written 269 bytes
+Verification error: self signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+Server public key is 1024 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES256-GCM-SHA384
+    Session-ID: E4342DCE59AFC3FF1310275F6B76346C57FB337B5E6D771DEB19E8A9CA61C89B
+    Session-ID-ctx:
+    Master-Key: 18DBA9A9C5A2AA5C3BE4BFF2EFF73ECCE96067730C7039F32AE4102D2B54F6149AFE9E34B107FA3BF21CA3D3628EE40F
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - 27 f7 c2 d1 66 25 86 f4-a5 ac ce 74 a6 68 5b 20   '...f%.....t.h[
+    0010 - 7c dc 95 af 0f ce 8c 1c-a1 9e 80 9e 00 94 61 38   |.............a8
+    0020 - 55 23 8f 16 0d 71 e0 a5-24 99 8e 08 2c cb e6 ed   U#...q..$...,...
+    0030 - 84 ee 07 67 8e b5 09 a5-1a a0 93 3f 7d e3 3f 8d   ...g.......?}.?.
+    0040 - b1 1c a1 a6 4e 27 ad 0b-d0 c4 87 fb e0 9c 3c ab   ....N'........<.
+    0050 - 18 b6 8f 94 c6 8c 10 64-78 19 9b bd eb 5b 32 65   .......dx....[2e
+    0060 - 72 36 c5 56 4a 06 01 5a-b7 12 41 b2 31 4e de bd   r6.VJ..Z..A.1N..
+    0070 - 2d 5f 93 15 12 b0 38 11-bb 7d 0d 4a b4 70 cd 38   -_....8..}.J.p.8
+    0080 - 7a 60 6c 40 32 af 1d 9c-65 c8 09 8d c5 b6 e9 f2   z`l@2...e.......
+    0090 - 41 be 05 1a 3d 84 7f 28-7c e6 31 bb 74 6b 08 92   A...=..(|.1.tk..
+
+    Start Time: 1618665779
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self signed certificate)
+    Extended master secret: yes
+---
+cluFn7wTiGryunymYOu4RcffSxQluehd
+cluFn7wTiGryunymYOu4RcffSxQluehd
+DONE
+```
+
+포트 31518은 그냥 입력한 문자 그대로 
 ```
 bandit16@bandit:~$ openssl s_client -connect localhost:31790
 CONNECTED(00000003)
@@ -123,7 +231,7 @@ vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
 closed
 ```
 
-비밀번호를 입력하니까 익숙한 RSA PRIVATE KEY, 즉 SSH 개인키 파일을 획득했다.
+나머지 포트는 암호 ```cluFn7wTiGryunymYOu4RcffSxQluehd```를 입력하니까 익숙한 RSA PRIVATE KEY, 즉 SSH 개인키 파일을 획득했다.
 쓰기 권한이 있는 ```/tmp/17```경로에 파일을 만들어 bandit17로의 로그인 인증을 시도하였다
 ```
 bandit16@bandit:/tmp$ mkdir /tmp/17
