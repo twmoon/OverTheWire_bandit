@@ -50,7 +50,7 @@ bandit16@bandit:~$ echo ?? | nc localhost 31960
 ^C
 ```
 
-포트 31046,31691,31960는 단순히 데이터를 돌려주는 포트 같고 나머지 포트 31518, 31790가 ssl을 사용하는 포트로 추정된다.  
+```포트 31046,31691,31960```는 단순히 데이터를 돌려주는 포트 같고 나머지 ```포트 31518, 31790```가 ssl을 사용하는 포트로 추정된다.  
 ssl을 사용하는 포트 2곳에 현재 레벨의 암호 ```cluFn7wTiGryunymYOu4RcffSxQluehd```를 입력해주면
 ```
 bandit16@bandit:~$ openssl s_client -connect localhost:31518
@@ -127,7 +127,7 @@ cluFn7wTiGryunymYOu4RcffSxQluehd
 DONE
 ```
 
-포트 31518은 그냥 입력한 문자 그대로 
+```포트 31518```은 그냥 입력한 문자 그대로 
 ```
 bandit16@bandit:~$ openssl s_client -connect localhost:31790
 CONNECTED(00000003)
@@ -231,7 +231,7 @@ vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
 closed
 ```
 
-나머지 포트는 암호 ```cluFn7wTiGryunymYOu4RcffSxQluehd```를 입력하니까 익숙한 RSA PRIVATE KEY, 즉 SSH 개인키 파일을 획득했다.
+나머지 ```포트 31790```는 암호 ```cluFn7wTiGryunymYOu4RcffSxQluehd```를 입력하니까 익숙한 RSA PRIVATE KEY, 즉 SSH 개인키 파일을 획득했다.
 쓰기 권한이 있는 ```/tmp/17```경로에 파일을 만들어 bandit17로의 로그인 인증을 시도하였다
 ```
 bandit16@bandit:/tmp$ mkdir /tmp/17
