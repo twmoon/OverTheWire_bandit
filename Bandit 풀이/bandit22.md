@@ -19,7 +19,7 @@ bandit21@bandit:/etc/cron.d$ cat cronjob_bandit22
 * * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
 ```
 
-인터넷 검색 결과 ```* * * * * <사용자 이름> <실행할 명령>``` 이런 형식으로 ```cron```이 작동하는 것을 알 수 있다.
+인터넷 검색 결과 ```* * * * * <사용자 이름> <실행할 명령>``` 이런 형식으로 ```cron```이 작동하는 것을 알 수 있다.  
 따라서 실행되는 ```/usr/bin/cronjob_bandit22.sh```의 파일 종류를 보면
 ```
 bandit21@bandit:/etc/cron.d$ file /usr/bin/cronjob_bandit22.sh
@@ -33,5 +33,14 @@ bandit21@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit22.sh
 chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 ```
+다시 ```/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv```의 파일 형태를 보면 
+```
+bandit21@bandit:~$ file /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv: ASCII text
+```
+```
+bandit21@bandit:~$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+```
+따라서 암호는 ```Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI```입니다.
 
-즉 암호는 ```t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv```인것을 알 수 있다.
