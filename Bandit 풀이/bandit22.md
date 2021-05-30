@@ -42,5 +42,5 @@ bandit21@bandit:~$ file /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 bandit21@bandit:~$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
 ```
-따라서 암호는 ```Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI```입니다.
+따라서 암호는 ```Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI```이다.
 
